@@ -114,7 +114,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := op1 op2 op_odm
+BOARD_ROOT_EXTRA_FOLDERS := op1 op2
 
 # Sepolicy
 include device/qcom/sepolicy/SEPolicy.mk
