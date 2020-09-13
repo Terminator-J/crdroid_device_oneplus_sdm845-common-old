@@ -120,6 +120,10 @@ TARGET_USES_MKE2FS := true
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := op1 op2 op_odm
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/product/lib64/libdpmframework.so|libcutils_shim.so
+
 # Sepolicy
 include device/qcom/sepolicy/SEPolicy.mk
 
