@@ -215,7 +215,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    android.hardware.power-service-qti
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
