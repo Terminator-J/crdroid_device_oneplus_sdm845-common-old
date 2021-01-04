@@ -179,7 +179,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.1-service.oneplus_sdm845
+    vendor.lineage.livedisplay@2.1-service.oneplus_sdm845
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -244,7 +244,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.oneplus
+    vendor.lineage.touch@1.0-service.oneplus_sdm845
 
 # tri-state-key
 PRODUCT_PACKAGES += \
