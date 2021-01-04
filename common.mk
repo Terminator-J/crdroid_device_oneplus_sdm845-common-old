@@ -197,7 +197,7 @@ PRODUCT_BOOT_JARS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    android.hardware.power-service-qti
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
