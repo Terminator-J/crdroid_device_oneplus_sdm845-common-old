@@ -16,10 +16,7 @@ on init
     chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_srgb_color_mode
     chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/native_display_wide_color_mode
 
-on post-fs-data
-    mkdir /data/misc/display 0770 system system
-
-service livedisplay-hal-2-1 /system_ext/bin/hw/lineage.livedisplay@2.1-service.oneplus_sdm845
+service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.oneplus_sdm845
     class hal
     user system
     group system
