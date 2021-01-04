@@ -146,6 +146,9 @@ persist.vendor.data.mode=concurrent
 nfc.delayese=true
 ro.boot.product.hardware.sku=ese
 
+# OTG
+persist.sys.oem.otg_support=true
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
