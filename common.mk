@@ -238,8 +238,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.impl.oneplus_sdm845 \
-    vendor.qti.hardware.vibrator.service.oneplus_sdm845
+    vendor.qti.hardware.vibrator.service
 
 # VNDK
 PRODUCT_COPY_FILES += \
