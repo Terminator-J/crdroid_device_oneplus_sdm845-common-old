@@ -99,11 +99,45 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    fstab.qcom \
+    ftm_power_config.sh \
+    init.class_main.sh \
+    init.crda.sh \
+    init.cust.rc \
+    init.mdm.sh \
+    init.oem.debug.rc \
+    init.oem.rc \
+    init.oem_ftm.rc \
+    init.oem_rf.rc \
     init.opcamera.rc \
+    init.qcom.class_core.sh \
+    init.qcom.coex.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.factory.rc \
+    init.qcom.post_boot.sh \
     init.qcom.rc \
+    init.qcom.sdio.sh \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    init.qti.chg_policy.sh \
+    init.qti.fm.rc \
+    init.qti.fm.sh \
+    init.qti.qcv.rc \
+    init.qti.qcv.sh \
+    init.qti.ufs.rc \
     init.recovery.qcom.rc \
     init.smartcharging.rc \
-    ueventd.qcom.rc
+    init.target.rc \
+    init.time_daemon.rc \
+    init.uicc.rc \
+    init.vendor.sensors.rc \
+    vendor.memplus.sh \
+    ueventd.qcom.rc \
+    vendor.oem_ftm.rc \
+    vendor.oem_ftm_svc_disable.rc
 
 # Display
 PRODUCT_PACKAGES += \
