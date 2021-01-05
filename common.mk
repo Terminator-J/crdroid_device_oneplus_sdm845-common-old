@@ -158,8 +158,8 @@ PRODUCT_PACKAGES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-impl.recovery \
+    android.hardware.boot@1.1-impl-qti \
+    android.hardware.boot@1.1-impl-qti.recovery \
     android.hardware.boot@1.1-service \
     bootctrl.sdm845 \
     bootctrl.sdm845.recovery
