@@ -1,2 +1,5 @@
+# Use a custom app domain for oneplus camera
+user=_app isPrivApp=true seinfo=oneplus name=com.oneplus.camera domain=oneplus_camera_app type=app_data_file levelFrom=all
+
 # Use a custom app domain for Udfpshelper
 user=system seinfo=platform name=org.lineageos.oneplus.udfpshelper domain=udfpshelper_app type=system_app_data_file
