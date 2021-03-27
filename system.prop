@@ -47,6 +47,10 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
+# Iorap
+iorapd.perfetto.enable=true
+iorapd.readahead.enable=true
+
 # Media
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 ro.media.recorder-max-base-layer-fps=60
