@@ -255,7 +255,7 @@ PRODUCT_COPY_FILES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.oneplus_sdm845
+    vendor.lineage.livedisplay@2.1-service.oneplus_sdm845
 
 # Media
 PRODUCT_PACKAGES += \
