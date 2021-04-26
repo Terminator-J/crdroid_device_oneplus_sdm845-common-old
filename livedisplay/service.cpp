@@ -37,7 +37,7 @@ using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
 int main() {
     std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
     android::sp<IAntiFlicker> afService = new AntiFlicker();
-    android::sp<IDisplayModes> modesService = new DisplayModes();
+    android::sp<IDisplayModes> modesService = new DisplayModes(controller);
     android::sp<IPictureAdjustment> paService = new PictureAdjustment(controller);
     android::sp<ISunlightEnhancement> sreService = new SunlightEnhancement();
 
@@ -63,7 +63,7 @@ int main() {
         return 1;
     }
 
-    LOG(INFO) << "LiveDisplay HAL service ready.";
+    LOG(INFO) << "LiveDisplay HAL service is ready.";
 
     android::hardware::joinRpcThreadpool();
 
