@@ -183,6 +183,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.recovery.qcom.rc \
+    init.smartcharging.rc \
     init.target.rc \
     ueventd.qcom.rc
 
@@ -352,6 +353,9 @@ PRODUCT_PACKAGES += \
     libjson \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor
+
+# Quick Tap
+TARGET_SUPPORTS_QUICK_TAP := true
 
 # RIL
 PRODUCT_PACKAGES += \
