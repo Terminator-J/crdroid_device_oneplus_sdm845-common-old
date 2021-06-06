@@ -43,7 +43,6 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := $(PRODUCT_TARGET_VNDK_VERSION)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -91,7 +90,6 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcvface_api \
     Snap
 
 # Common init scripts
@@ -210,15 +208,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcutils-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so
-
-# WiFi
-PRODUCT_PACKAGES += \
-    WifiOverlay
 
 # WiFi Display
 PRODUCT_PACKAGES += \
