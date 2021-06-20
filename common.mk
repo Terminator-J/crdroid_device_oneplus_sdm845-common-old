@@ -40,6 +40,9 @@ PRODUCT_PACKAGES += \
     OnePlusIconShapeTeardropOverlay \
     TelephonyResCommon
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/vendor_overlay/android.hardware.camera.provider@2.4-service.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/android.hardware.camera.provider@2.4-service.rc
+
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
@@ -99,6 +102,7 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.device_extras.rc \
+    init.opcamera.rc \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.smartcharging.rc \
@@ -170,6 +174,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     oneplus-fwk
+
+# OnePlus Camera
+$(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
 
 # Power
 PRODUCT_PACKAGES += \
