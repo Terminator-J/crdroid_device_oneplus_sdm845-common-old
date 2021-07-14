@@ -93,8 +93,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcvface_api \
-    Snap
+    libcvface_api
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -176,6 +175,10 @@ PRODUCT_BOOT_JARS += \
 # Power
 PRODUCT_PACKAGES += \
     power.qcom:64
+
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
