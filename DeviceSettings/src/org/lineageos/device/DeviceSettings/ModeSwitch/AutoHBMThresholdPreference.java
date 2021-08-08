@@ -26,7 +26,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceViewHolder;
 
-public class AutoHBMThresholdPreference extends ProperSeekBarPreference {
+public class AutoHBMThresholdPreference extends CustomSeekBarPreference {
 
     private static int mMinVal = 0;
     private static int mMaxVal = 60000;

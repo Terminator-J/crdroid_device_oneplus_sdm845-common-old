@@ -25,63 +25,67 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.preference.PreferenceManager;
 
-public class Startup extends BroadcastReceiver {
+import org.lineageos.device.DeviceSettings.FileUtils;
 
-    private boolean mHBM = false;
+public class Startup extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
-
-        VibratorStrengthPreference.restore(context);
-        VibratorCallStrengthPreference.restore(context);
-        VibratorNotifStrengthPreference.restore(context);
-
         boolean enabled = false;
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
-        if (enabled) {
-        mHBM = false;
-        restore(SRGBModeSwitch.getFile(), enabled);
- 	       }
+
+        DeviceSettings.restoreSliderStates(context);
+        DeviceSettings.restoreVibStrengthSetting(context);
+
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_HBM_SWITCH, false);
         if (enabled) {
-        mHBM = true;
-        restore(HBMModeSwitch.getFile(), enabled);
-               }
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false);
+            restore(HBMModeSwitch.getFile(), enabled);
+        }
+
+        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
         if (enabled) {
-        mHBM = false;
-        restore(DCModeSwitch.getFile(), enabled);
-               }
+            restore(SRGBModeSwitch.getFile(), enabled);
+        }
+
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DCI_SWITCH, false);
         if (enabled) {
-        mHBM = false;
-        restore(DCIModeSwitch.getFile(), enabled);
-               }
+            restore(DCIModeSwitch.getFile(), enabled);
+        }
+
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_WIDE_SWITCH, false);
         if (enabled) {
-        mHBM = false;
-        restore(WideModeSwitch.getFile(), enabled);
-               }
+            restore(WideModeSwitch.getFile(), enabled);
+        }
+
+        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false);
+        if (enabled) {
+            restore(DCModeSwitch.getFile(), enabled);
+        }
+
         enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_FPS_INFO, false);
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
         }
+
     }
 
     private void restore(String file, boolean enabled) {
+
         if (file == null) {
             return;
         }
+
         if (enabled) {
-            Utils.writeValue(file, "1");
+            FileUtils.writeValue(file, "1");
         }
     }
 
     private void restore(String file, String value) {
+
         if (file == null) {
             return;
         }
-        Utils.writeValue(file, value);
+
+        FileUtils.writeValue(file, value);
     }
 }

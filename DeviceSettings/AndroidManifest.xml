@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2014-2015 The CyanogenMod Project
-     Copyright (C) 2018 The LineageOS Project
+     Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2021 The Evolution X Project
+     Copyright (C) 2018 The Xiaomi-SDM660 Project
+     Copyright (C) 2018-2021 crDroid Android Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -13,35 +17,39 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:sharedUserId="android.uid.system"
-          package="org.lineageos.device.DeviceSettings"
-          android:versionCode="1"
-          android:versionName="1.0" >
+    package="org.lineageos.device.DeviceSettings"
+    android:sharedUserId="android.uid.system"
+    android:versionCode="4"
+    android:versionName="4.0">
 
-    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <protected-broadcast android:name="org.lineageos.device.DeviceSettings.UPDATE_SLIDER_POSITION" />
+    <protected-broadcast android:name="org.lineageos.device.DeviceSettings.UPDATE_SLIDER_SETTINGS" />
 
     <uses-sdk
-        android:minSdkVersion="24" />
+        android:minSdkVersion="28"
+        android:targetSdkVersion="29" />
 
     <application
         android:icon="@drawable/ic_settings_device"
         android:label="@string/device_title"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true">
 
-        <!-- Device Settings -->
+        <!-- DeviceSettings -->
         <activity
             android:name=".DeviceSettingsActivity"
             android:label="@string/device_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
+
             <meta-data
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_settings_device" />
@@ -51,17 +59,18 @@
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.homepage" />
-            <meta-data android:name="com.android.settings.summary"
+            <meta-data
+                android:name="com.android.settings.summary"
                 android:resource="@string/device_summary" />
         </activity>
 
         <activity android:name=".DeviceSettings" />
         <activity android:name=".KeyHandler" />
 
-        <receiver 
-            android:name=".Startup" 
+        <receiver
+            android:name=".Startup"
             android:enabled="true">
-            <intent-filter android:priority="100" >
+            <intent-filter android:priority="100">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -70,18 +79,17 @@
         <activity
             android:name=".PanelSettingsActivity"
             android:exported="true"
-            android:label="@string/panel_category_title"
-            android:launchMode="singleTask" >
+            android:label="@string/panel_category_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!-- Panel Modes Tile -->
+        <!-- Panel Mode's Tile -->
         <service
             android:name=".PanelModeTileService"
-            android:icon="@drawable/ic_panel_modes"
+            android:icon="@drawable/ic_panel_tile"
             android:label="@string/tile_panel_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -90,42 +98,48 @@
             </intent-filter>
         </service>
 
+        <!-- DeviceSettings tile -->
+        <service
+            android:name=".DeviceSettingsTileService"
+            android:icon="@drawable/ic_settings_device"
+            android:label="@string/device_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
         <!-- DC-Dimming tile -->
         <service
             android:name=".DCModeTileService"
             android:icon="@drawable/ic_dc_mode"
-            android:label="@string/tile_dc_mode"
+            android:label="@string/dc_mode_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 
-        <!-- HBM service -->
-        <service android:name=".HBMModeService"
-                 android:exported="false" />
-		 
         <!-- Auto HBM service -->
-        <service android:name=".AutoHBMService"
-		 android:exported="false" />
+        <service
+            android:name=".AutoHBMService"
+            android:exported="false" />
 
         <!-- HBM tile -->
         <service
             android:name=".HBMModeTileService"
             android:icon="@drawable/ic_hbm_mode"
-            android:label="@string/tile_hbm_mode"
+            android:label="@string/hbm_mode_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 
         <!-- FPS info service -->
-        <service android:name=".FPSInfoService"
-                android:exported="false">
-        </service>
+        <service
+            android:name=".FPSInfoService"
+            android:exported="false" />
 
         <!-- FPS tile -->
         <service
@@ -134,8 +148,7 @@
             android:label="@string/fps_info_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 
@@ -143,10 +156,10 @@
         <provider
             android:name=".ConfigPanelSearchIndexablesProvider"
             android:authorities="org.lineageos.device"
-            android:multiprocess="false"
+            android:exported="true"
             android:grantUriPermissions="true"
-            android:permission="android.permission.READ_SEARCH_INDEXABLES"
-            android:exported="true">
+            android:multiprocess="false"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES">
             <intent-filter>
                 <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
             </intent-filter>

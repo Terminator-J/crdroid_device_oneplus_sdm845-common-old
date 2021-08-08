@@ -39,14 +39,14 @@ public class AutoHBMService extends Service {
 
     private void enableHBM(boolean enable) {
         if (enable) {
-            Utils.writeValue(HBM_FILE, "5");
+            FileUtils.writeValue(HBM_FILE, "5");
         } else {
-            Utils.writeValue(HBM_FILE, "0");
+            FileUtils.writeValue(HBM_FILE, "0");
         }
     }
 
     private boolean isCurrentlyEnabled() {
-        return Utils.getFileValueAsBoolean(HBM_FILE, false);
+        return FileUtils.getFileValueAsBoolean(HBM_FILE, false);
     }
 
     SensorEventListener mSensorEventListener = new SensorEventListener() {

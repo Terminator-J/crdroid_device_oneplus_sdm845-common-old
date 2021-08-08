@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.lineageos.device.DeviceSettings;
 
 import android.app.Service;
@@ -73,42 +74,38 @@ public class FPSInfoService extends Service {
 
         private Handler mCurFPSHandler = new Handler() {
             public void handleMessage(Message msg) {
-                if(msg.obj==null){
+                if(msg.obj == null || msg.what != 1)
                     return;
-                }
-                if(msg.what==1){
-                    String msgData = (String) msg.obj;
-                    msgData = msgData.substring(0, Math.min(msgData.length(), 9));
-                    mFps = msgData;
-                    mDataAvail = true;
-                    updateDisplay();
-                }
+
+                mFps = parseMeasuredFps((String) msg.obj);
+                mDataAvail = true;
+                updateDisplay();
             }
         };
 
         FPSView(Context c) {
             super(c);
             float density = c.getResources().getDisplayMetrics().density;
-            int paddingPx = Math.round(5 * density);
+            int paddingPx = Math.round(10 * density);
             setPadding(paddingPx, paddingPx, paddingPx, paddingPx);
-            setBackgroundColor(Color.argb(0x60, 0, 0, 0));
+            setBackgroundColor(Color.argb(0x0, 0, 0, 0));
 
-            final int textSize = Math.round(12 * density);
+            final int textSize = Math.round(20 * density);
 
-            Typeface typeface = Typeface.create("monospace", Typeface.NORMAL);
+            Typeface typeface = Typeface.create("google-sans", Typeface.BOLD);
 
             mOnlinePaint = new Paint();
             mOnlinePaint.setTypeface(typeface);
             mOnlinePaint.setAntiAlias(true);
             mOnlinePaint.setTextSize(textSize);
-            mOnlinePaint.setColor(Color.WHITE);
+            mOnlinePaint.setColor(Color.GREEN);
             mOnlinePaint.setShadowLayer(5.0f, 0.0f, 0.0f, Color.BLACK);
 
             mAscent = mOnlinePaint.ascent();
             float descent = mOnlinePaint.descent();
             mFH = (int)(descent - mAscent + .5f);
 
-            final String maxWidthStr="fps: 60.1";
+            final String maxWidthStr = "FPS: XYZ";
             mMaxWidth = (int)mOnlinePaint.measureText(maxWidthStr);
 
             updateDisplay();
@@ -157,12 +154,23 @@ public class FPSInfoService extends Service {
             y += mFH;
         }
 
+        private String parseMeasuredFps(String data) {
+            String result = "err";
+            try {
+                float fps = Float.parseFloat(data.trim().split("\\s+")[1]);
+                result = String.valueOf(Math.round(fps));
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "NumberFormatException occured at parsing FPS data");
+            }
+            return "FPS: " + result;
+        }
+
         void updateDisplay() {
             if (!mDataAvail) {
                 return;
             }
 
-            int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth;
+            int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth + 40;
             int neededHeight = mPaddingTop + mPaddingBottom + 40;
             if (neededWidth != mNeededWidth || neededHeight != mNeededHeight) {
                 mNeededWidth = neededWidth;
@@ -217,7 +225,7 @@ public class FPSInfoService extends Service {
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             PixelFormat.TRANSLUCENT);
-        params.gravity = Gravity.LEFT | Gravity.TOP;
+        params.gravity = Gravity.RIGHT | Gravity.TOP;
         params.setTitle("FPS Info");
 
         startThread();
