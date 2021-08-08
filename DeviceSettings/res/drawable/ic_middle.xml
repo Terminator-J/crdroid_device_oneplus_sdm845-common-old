@@ -1,9 +1,11 @@
+<!-- drawable/ic_middle.xml -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="24dp"
     android:width="24dp"
+    android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
     android:tint="?android:attr/colorControlNormal">
-    <path android:fillColor="#000"
-	    android:pathData="M23 12L19 8V11H14.82C14.4 9.84 13.3 9 12 9S9.6 9.84 9.18 11H5L2 8V16L5 13H9.18C9.6 14.16 10.7 15 12 15S14.4 14.16 14.82 13H19V16L23 12Z" />
+  <path
+      android:fillColor="#000"
+      android:pathData="M8,19h3v4h2v-4h3l-4,-4 -4,4zM16,5h-3L13,1h-2v4L8,5l4,4 4,-4zM4,11v2h16v-2L4,11z"/>
 </vector>

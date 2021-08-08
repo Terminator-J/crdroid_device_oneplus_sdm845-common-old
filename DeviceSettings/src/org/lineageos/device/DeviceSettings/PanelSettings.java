@@ -29,8 +29,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
@@ -49,6 +47,8 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 import androidx.viewpager.widget.ViewPager;
+
+import org.lineageos.device.DeviceSettings.FileUtils;
 
 public class PanelSettings extends PreferenceFragment implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
@@ -75,14 +75,6 @@ public class PanelSettings extends PreferenceFragment implements RadioGroup.OnCh
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-
-        Resources res = getResources();
-        Window win = getActivity().getWindow();
-
-        win.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        win.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        win.setNavigationBarColor(res.getColor(R.color.primary_color));
-        win.setNavigationBarDividerColor(res.getColor(R.color.primary_color));
     }
 
     @Override
@@ -135,32 +127,32 @@ public class PanelSettings extends PreferenceFragment implements RadioGroup.OnCh
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor edit = sharedPrefs.edit();
         if (checkedId == R.id.srgb_mode) {
-            Utils.writeValue(DCIModeSwitch.getFile(), "0");
+            FileUtils.writeValue(DCIModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_DCI_SWITCH, false);
-            Utils.writeValue(WideModeSwitch.getFile(), "0");
+            FileUtils.writeValue(WideModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_WIDE_SWITCH, false);
-            Utils.writeValue(SRGBModeSwitch.getFile(), "1");
+            FileUtils.writeValue(SRGBModeSwitch.getFile(), "1");
             edit.putBoolean(DeviceSettings.KEY_SRGB_SWITCH, true);
         } else if (checkedId == R.id.dci_mode) {
-            Utils.writeValue(SRGBModeSwitch.getFile(), "0");
+            FileUtils.writeValue(SRGBModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
-            Utils.writeValue(WideModeSwitch.getFile(), "0");
+            FileUtils.writeValue(WideModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_WIDE_SWITCH, false);
-            Utils.writeValue(DCIModeSwitch.getFile(), "1");
+            FileUtils.writeValue(DCIModeSwitch.getFile(), "1");
             edit.putBoolean(DeviceSettings.KEY_DCI_SWITCH, true);
         } else if (checkedId == R.id.wide_mode) {
-            Utils.writeValue(SRGBModeSwitch.getFile(), "0");
+            FileUtils.writeValue(SRGBModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
-            Utils.writeValue(DCIModeSwitch.getFile(), "0");
+            FileUtils.writeValue(DCIModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_DCI_SWITCH, false);
-            Utils.writeValue(WideModeSwitch.getFile(), "1");
+            FileUtils.writeValue(WideModeSwitch.getFile(), "1");
             edit.putBoolean(DeviceSettings.KEY_WIDE_SWITCH, true);
         } else if (checkedId == R.id.off_mode) {
-            Utils.writeValue(DCIModeSwitch.getFile(), "0");
+            FileUtils.writeValue(DCIModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_DCI_SWITCH, false);
-            Utils.writeValue(WideModeSwitch.getFile(), "0");
+            FileUtils.writeValue(WideModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_WIDE_SWITCH, false);
-            Utils.writeValue(SRGBModeSwitch.getFile(), "0");
+            FileUtils.writeValue(SRGBModeSwitch.getFile(), "0");
             edit.putBoolean(DeviceSettings.KEY_SRGB_SWITCH, false);
         }
         edit.commit();
