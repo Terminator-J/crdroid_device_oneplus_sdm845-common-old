@@ -10,3 +10,5 @@ Rebased on the official lineage-18.1 branch of the LineageOS device tree as of J
 * Please note that the lineage.dependencies file is woefully out of date; roomservice will not find everything necessary to compile the ROM correctly.
 
 * For required manifest modifications, please see https://github.com/Terminator-J/roomservices/ (for marginally less out-of-date dependency info).
+___
+10.0-m08 was released as the 20210721 crDroid 6.20 official build for OnePlus 6/6T
