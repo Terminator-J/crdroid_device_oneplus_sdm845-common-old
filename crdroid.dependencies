@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "crdroid",
+    "repository": "crdroidandroid/android_hardware_oneplus",
+    "target_path": "hardware/oneplus",
+    "branch": "12.0"
+  },
+  {
+    "remote": "crdroid",
+    "repository": "crdroidandroid/android_kernel_oneplus_sdm845",
+    "target_path": "kernel/oneplus/sdm845",
+    "branch": "12.0"
+  },
+  {
+    "remote": "crdroid-gitlab",
+    "repository": "crdroidandroid/proprietary_vendor_oneplus",
+    "target_path": "vendor/oneplus",
+    "branch": "12.0-sdm845-common"
+  }
+]
