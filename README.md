@@ -7,6 +7,4 @@ to both be more consistent with sm8150 & sm8250 common trees, and because I don'
 
 Rebased on the official lineage-18.1 branch of the LineageOS device tree as of August 2021.
 
-* Please note that the lineage.dependencies file is woefully out of date; roomservice will not find everything necessary to compile the ROM correctly.
-
-* For required manifest modifications, please see https://github.com/Terminator-J/roomservices/ (for marginally less out-of-date dependency info).
+* Please note that, for now, you'll need to add `pigz` to the allowed host tools paths in build/soong/ui/build/paths/config.go in order to compile the MCD-based kernel.
