@@ -37,9 +37,10 @@ product/lib64/libdpmfdmgr.so
 product/lib64/libdpmframework.so
 product/lib64/libdpmtcm.so
 
-# HotwordEnrollment
--priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk
--priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk
+# HotwordEnrollment - from OxygenOS 11.0.0 - OnePlus6TOxygen_34.J.60_OTA_0600_all_2108052232_8c516d0cce8795
+-product/priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk|ace0e7038b05e3c194ce539dcaed030a38d35196
+-product/priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk|4301b29962774da14908ad3d5ed755b23ab1dc0f
+-system_ext/framework/com.android.hotwordenrollment.common.util.jar|bef92589e75a6da6043f85f4b9b0e85866429624
 
 # IMS
 lib64/libdiag_system.so
