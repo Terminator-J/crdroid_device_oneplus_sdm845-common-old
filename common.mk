@@ -99,10 +99,15 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    init.device_extras.rc \
     init.qcom.rc \
     init.recovery.qcom.rc \
     init.smartcharging.rc \
     ueventd.qcom.rc
+
+# DeviceExtras Package
+PRODUCT_PACKAGES += \
+    DeviceExtras
 
 # Display
 PRODUCT_PACKAGES += \
@@ -112,10 +117,6 @@ PRODUCT_PACKAGES += \
     libvulkan \
     vendor.display.config@1.0 \
     vendor.display.config@2.0
-
-# Doze
-PRODUCT_PACKAGES += \
-    OnePlusDoze
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -201,7 +202,6 @@ PRODUCT_PACKAGES += \
 
 # tri-state-key
 PRODUCT_PACKAGES += \
-    KeyHandler \
     tri-state-key_daemon
 
 # Update engine
