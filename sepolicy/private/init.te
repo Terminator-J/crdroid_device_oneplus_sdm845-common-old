@@ -6,9 +6,14 @@ allow init vendor_overlay_file:dir mounton;
 
 # Allow init to chown/chmod on pseudo files in /sys
 allow init {
+    sysfs_dm
+    sysfs_fastcharge
     sysfs_fod
     sysfs_graphics
     sysfs_livedisplay_tuneable
+    sysfs_leds
+    sysfs_sound_control
+    vendor_sysfs_msm_perf
 }:file { r_file_perms setattr };
 
 # Allow init to write to otg_switch
