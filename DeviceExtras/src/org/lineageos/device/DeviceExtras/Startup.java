@@ -36,8 +36,6 @@ public class Startup extends BroadcastReceiver {
 
         DeviceExtras.restoreSliderStates(context);
         EarGainPreference.restore(context);
-        org.lineageos.device.DeviceExtras.doze.DozeUtils.checkDozeService(context);
-        org.lineageos.device.DeviceExtras.kcal.KCalSettings.restore(context);
         MicGainPreference.restore(context);
         VibratorCallStrengthPreference.restore(context);
         VibratorNotifStrengthPreference.restore(context);

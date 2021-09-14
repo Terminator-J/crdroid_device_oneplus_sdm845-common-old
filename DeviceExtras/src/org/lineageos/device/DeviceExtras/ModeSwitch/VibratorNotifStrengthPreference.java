@@ -30,8 +30,8 @@ import java.util.List;
 public class VibratorNotifStrengthPreference extends CustomSeekBarPreference {
 
     private static int mMinVal = 116;
-    private static int mMaxVal = 2088;
-    private static int mDefVal = 500;
+    private static int mMaxVal = 3596;
+    private static int mDefVal = 2088;
     private Vibrator mVibrator;
 
     private static final String FILE_LEVEL = "/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-03/c440000.qcom,spmi:qcom,pmi8998@3:qcom,haptics@c000/leds/vibrator/vmax_mv_strong";

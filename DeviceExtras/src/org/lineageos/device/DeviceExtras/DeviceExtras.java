@@ -52,8 +52,6 @@ import androidx.preference.TwoStatePreference;
 import java.util.Arrays;
 
 import org.lineageos.device.DeviceExtras.Constants;
-import org.lineageos.device.DeviceExtras.doze.DozeSettingsActivity;
-import org.lineageos.device.DeviceExtras.kcal.KCalSettingsActivity;
 import org.lineageos.device.DeviceExtras.FileUtils;
 import org.lineageos.device.DeviceExtras.R;
 
@@ -67,15 +65,12 @@ public class DeviceExtras extends PreferenceFragment
     public static final String KEY_AUTO_HBM_THRESHOLD = "auto_hbm_threshold";
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_DCI_SWITCH = "dci";
-    public static final String KEY_DOZE = "advanced_doze_settings";
     public static final String KEY_EAR_GAIN = "earpiece_gain";
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_FPS_INFO_POSITION = "fps_info_position";
     public static final String KEY_FPS_INFO_COLOR = "fps_info_color";
     public static final String KEY_FPS_INFO_TEXT_SIZE = "fps_info_text_size";
-    public static final String KEY_GAME_SWITCH = "game_mode";
     public static final String KEY_HBM_SWITCH = "hbm";
-    public static final String KEY_KCAL = "kcal";
     public static final String KEY_MIC_GAIN = "microphone_gain";
     public static final String KEY_SRGB_SWITCH = "srgb";
     public static final String KEY_TOUCH_BOOST_SWITCH = "touchboost";
@@ -90,15 +85,12 @@ public class DeviceExtras extends PreferenceFragment
     private static SwitchPreference mFpsInfo;
     private static TwoStatePreference mAutoHBMSwitch;
     private static TwoStatePreference mDCModeSwitch;
-    private static TwoStatePreference mGameModeSwitch;
     private static TwoStatePreference mHBMModeSwitch;
     private static TwoStatePreference mTouchboostModeSwitch;
     private static TwoStatePreference mUSB2FastChargeModeSwitch;
 
     private CustomSeekBarPreference mFpsInfoTextSizePreference;
     private EarGainPreference mEarGain;
-    private Preference mDozeSettings;
-    private Preference mKcal;
     private ListPreference mBottomKeyPref;
     private ListPreference mMiddleKeyPref;
     private ListPreference mTopKeyPref;
@@ -112,22 +104,6 @@ public class DeviceExtras extends PreferenceFragment
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         addPreferencesFromResource(R.xml.main);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // DozeSettings Activity
-        mDozeSettings = (Preference)findPreference(KEY_DOZE);
-        mDozeSettings.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), DozeSettingsActivity.class);
-            startActivity(intent);
-            return true;
-        });
-
-        // Kcal Activity
-        mKcal = findPreference(KEY_KCAL);
-        mKcal.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
-            startActivity(intent);
-            return true;
-        });
 
         // DC-Dimming
         mDCModeSwitch = (TwoStatePreference) findPreference(KEY_DC_SWITCH);

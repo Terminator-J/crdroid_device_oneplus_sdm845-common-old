@@ -69,28 +69,6 @@
         android:key="display"
         android:title="@string/display_title">
 
-        <Preference
-            android:key="advanced_doze_settings"
-            android:icon="@drawable/ic_doze"
-            android:title="@string/ambient_display_gestures_title"
-            android:summary="@string/ambient_display_gestures_summary"
-            android:persistent="false" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetClass="org.lineageos.device.DeviceExtras.DozeSettingsActivity" />
-        </Preference>
-
-        <Preference
-            android:key="kcal"
-            android:persistent="false"
-            android:icon="@drawable/ic_kcal"
-            android:title="@string/device_kcal_title"
-            android:summary="@string/kcal_enabled_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="org.lineageos.device.DeviceExtras.kcal.KCalSettingsActivity"
-                android:targetPackage="org.lineageos.device.DeviceExtras.kcal" />
-       </Preference>
-
        <Preference
             android:key="panel_modes"
             android:icon="@drawable/ic_panel_modes"
@@ -214,14 +192,19 @@
 
         <org.lineageos.device.DeviceExtras.VibratorCallStrengthPreference
             android:key="vib_call_strength"
-            android:icon="@drawable/ic_vibration"
+            android:icon="@drawable/ic_vibration_call"
             android:title="@string/vib_call_strength_title"
             android:summary="@string/vib_call_strength_summary" />
 
         <org.lineageos.device.DeviceExtras.VibratorNotifStrengthPreference
             android:key="vib_notif_strength"
-            android:icon="@drawable/ic_vibration"
+            android:icon="@drawable/ic_vibration_notif"
             android:title="@string/vib_notif_strength_title"
             android:summary="@string/vib_notif_strength_summary" />
+
+        <Preference
+            android:icon="@drawable/ic_info_outline"
+            android:persistent="false"
+            android:summary="@string/vibration_warning" />
     </PreferenceCategory>
 </PreferenceScreen>
