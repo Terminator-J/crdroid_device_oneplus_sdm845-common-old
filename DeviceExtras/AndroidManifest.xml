@@ -28,7 +28,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <protected-broadcast android:name="org.lineageos.device.DeviceExtras.UPDATE_SLIDER_POSITION" />
     <protected-broadcast android:name="org.lineageos.device.DeviceExtras.UPDATE_SLIDER_SETTINGS" />
 
@@ -104,7 +103,7 @@
             </intent-filter>
         </activity>
 
-        <!-- Panel Mode's Tile -->
+        <!-- Panel Modes Tile -->
         <service
             android:name=".PanelModeTileService"
             android:icon="@drawable/ic_panel_modes"
@@ -115,7 +114,7 @@
             </intent-filter>
         </service>
 
-        <!-- DC-Dimming tile -->
+        <!-- DC Dimming tile -->
         <service
             android:name=".DCModeTileService"
             android:icon="@drawable/ic_dc_mode"
@@ -147,33 +146,6 @@
             </intent-filter>
         </service>
 
-        <!-- Doze service -->
-        <service
-            android:name=".doze.DozeService"
-            android:permission="OneplusDozeService" />
-
-        <!-- Doze Activity -->
-        <activity
-            android:name=".doze.DozeSettingsActivity"
-            android:exported="true"
-            android:label="@string/ambient_display_title">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- Doze tile -->
-        <service
-            android:name=".doze.DozeTileService"
-            android:icon="@drawable/ic_eye"
-            android:label="@string/ambient_display_gestures_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-        </service>
-
         <!-- FPS info service -->
         <service
             android:name=".FPSInfoService"
@@ -187,29 +159,6 @@
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
-            </intent-filter>
-        </service>
-
-         <!-- KCalSettings Activity -->
-        <activity
-            android:name=".kcal.KCalSettingsActivity"
-            android:exported="false"
-            android:label="@string/advanced_settings_kcal">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- KCalSettings Tile -->
-        <service
-            android:name=".kcal.KCalTileService"
-            android:icon="@drawable/ic_kcal"
-            android:label="@string/device_kcal_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
 
