@@ -43,8 +43,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 30
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_TARGET_VNDK_VERSION := 29
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -71,7 +70,7 @@ PRODUCT_PACKAGES += \
 
 # ANT+
 PRODUCT_PACKAGES += \
-    AntHalService-Soong
+    AntHalService
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -93,7 +92,6 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcvface_api \
     Snap
 
 # Common init scripts
@@ -104,12 +102,11 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    libdisplayconfig.qti \
+    libdisplayconfig \
     libqdMetaData \
     libqdMetaData.system \
     libvulkan \
-    vendor.display.config@1.0 \
-    vendor.display.config@2.0
+    vendor.display.config@1.0
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -126,7 +123,7 @@ PRODUCT_PACKAGES += \
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-hotword.xml
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -144,9 +141,6 @@ PRODUCT_PACKAGES += \
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_profiles_vendor.xml
-
-PRODUCT_PACKAGES += \
-    libavservices_minijail
 
 # Net
 PRODUCT_PACKAGES += \
@@ -173,6 +167,10 @@ PRODUCT_BOOT_JARS += \
 # Power
 PRODUCT_PACKAGES += \
     power.qcom:64
+
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -212,15 +210,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
-
-# VNDK
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v29/arm64/arch-arm-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcutils-v29.so \
-    prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libcutils.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcutils-v29.so
-
-# WiFi
-PRODUCT_PACKAGES += \
-    WifiOverlay
 
 # WiFi Display
 PRODUCT_PACKAGES += \
