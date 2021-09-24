@@ -163,6 +163,23 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="speaker"
+        android:title="@string/category_speaker">
+
+        <org.lineageos.device.DeviceExtras.EarGainPreference
+            android:key="earpiece_gain"
+            android:icon="@drawable/ic_earpiece"
+            android:title="@string/ear_gain_title"
+            android:summary="@string/ear_gain_summary" />
+
+        <org.lineageos.device.DeviceExtras.MicGainPreference
+            android:key="microphone_gain"
+            android:icon="@drawable/ic_microphone"
+            android:title="@string/mic_gain_title"
+            android:summary="@string/mic_gain_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="usb"
         android:title="@string/usb_title">
 

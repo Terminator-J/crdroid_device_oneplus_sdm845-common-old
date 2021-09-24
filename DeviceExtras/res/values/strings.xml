@@ -157,6 +157,13 @@
     <string name="kcal_presets" translatable="false">@string/presets_dialog_title</string>
     <string name="kcal_reset">Reset</string>
 
+    <!-- Speaker & Microphone -->
+    <string name="category_speaker">Speaker &amp; Microphone</string>
+    <string name="ear_gain_title">Earpiece gain (Calls)</string>
+    <string name="ear_gain_summary">Define the amplitude of the earpiece speaker</string>
+    <string name="mic_gain_title">Microphone gain</string>
+    <string name="mic_gain_summary">Define the amplitude of the microphone</string>
+
     <!-- USB -->
     <string name="usb_title">USB</string> 
     <string name="usb2_fc_title">USB 2.0 fast charge</string>
