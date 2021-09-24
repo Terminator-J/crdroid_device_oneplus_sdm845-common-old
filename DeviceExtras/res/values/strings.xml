@@ -52,6 +52,11 @@
     <string name="notification_slider_ringer_vibrate">Vibrate</string>
     <string name="notification_slider_ringer_silent">Silent</string>
 
+    <!-- CPU -->
+    <string name="category_cpu">CPU</string>
+    <string name="touchboost_title">Touchboost</string>
+    <string name="touchboost_summary">Boost CPU on touchscreen input</string>
+
     <!-- Display -->
     <string name="display_title">Display</string>
     <string name="dc_mode_title">DC-dimming</string>
