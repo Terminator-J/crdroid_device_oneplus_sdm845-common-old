@@ -68,6 +68,7 @@ public class DeviceExtras extends PreferenceFragment
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_DCI_SWITCH = "dci";
     public static final String KEY_DOZE = "advanced_doze_settings";
+    public static final String KEY_EAR_GAIN = "earpiece_gain";
     public static final String KEY_FPS_INFO = "fps_info";
     public static final String KEY_FPS_INFO_POSITION = "fps_info_position";
     public static final String KEY_FPS_INFO_COLOR = "fps_info_color";
@@ -75,6 +76,7 @@ public class DeviceExtras extends PreferenceFragment
     public static final String KEY_GAME_SWITCH = "game_mode";
     public static final String KEY_HBM_SWITCH = "hbm";
     public static final String KEY_KCAL = "kcal";
+    public static final String KEY_MIC_GAIN = "microphone_gain";
     public static final String KEY_SRGB_SWITCH = "srgb";
     public static final String KEY_USB2_SWITCH = "usb2_fast_charge";
     public static final String KEY_WIDE_SWITCH = "wide";
@@ -92,11 +94,13 @@ public class DeviceExtras extends PreferenceFragment
     private static TwoStatePreference mUSB2FastChargeModeSwitch;
 
     private CustomSeekBarPreference mFpsInfoTextSizePreference;
+    private EarGainPreference mEarGain;
     private Preference mDozeSettings;
     private Preference mKcal;
     private ListPreference mBottomKeyPref;
     private ListPreference mMiddleKeyPref;
     private ListPreference mTopKeyPref;
+    private MicGainPreference mMicGain;
     private VibratorStrengthPreference mVibratorStrength;
     private VibratorCallStrengthPreference mVibratorCallStrength;
     private VibratorNotifStrengthPreference mVibratorNotifStrength;
@@ -156,6 +160,18 @@ public class DeviceExtras extends PreferenceFragment
 
         // Slider Preferences
         initNotificationSliderPreference();
+
+        // Earpiece gain
+        mEarGain = (EarGainPreference) findPreference(KEY_EAR_GAIN);
+        if (mEarGain != null) {
+            mEarGain.setEnabled(EarGainPreference.isSupported());
+        }
+
+        // Microphone gain
+        mMicGain = (MicGainPreference) findPreference(KEY_MIC_GAIN);
+        if (mMicGain != null) {
+            mMicGain.setEnabled(MicGainPreference.isSupported());
+        }
 
         // USB2 Force FastCharge
         mUSB2FastChargeModeSwitch = (TwoStatePreference) findPreference(KEY_USB2_SWITCH);

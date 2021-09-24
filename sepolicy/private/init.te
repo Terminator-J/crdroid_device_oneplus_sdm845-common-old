@@ -13,6 +13,7 @@ allow init {
     sysfs_graphics
     sysfs_livedisplay_tuneable
     sysfs_leds
+    sysfs_sound_control
 }:file { r_file_perms setattr };
 
 # Allow init to write to otg_switch
