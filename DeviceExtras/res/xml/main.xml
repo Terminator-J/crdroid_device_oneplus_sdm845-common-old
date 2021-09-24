@@ -54,6 +54,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="cpu"
+        android:title="@string/category_cpu">
+
+        <SwitchPreference
+            android:key="touchboost"
+            android:defaultValue="true"
+            android:icon="@drawable/ic_touchboost"
+            android:title="@string/touchboost_title"
+            android:summary="@string/touchboost_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="display"
         android:title="@string/display_title">
 

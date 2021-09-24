@@ -67,6 +67,10 @@ public class Startup extends BroadcastReceiver {
         mHBM = false;
         restore(SRGBModeSwitch.getFile(), enabled);
  	       }
+        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_TOUCH_BOOST_SWITCH, false);
+        if (enabled) {
+        restore(TouchboostModeSwitch.getFile(), enabled);
+               }
         enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_USB2_SWITCH, false);
         if (enabled) {
         restore(USB2FastChargeModeSwitch.getFile(), enabled);

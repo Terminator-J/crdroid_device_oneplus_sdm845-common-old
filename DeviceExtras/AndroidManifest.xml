@@ -213,6 +213,17 @@
             </intent-filter>
         </service>
 
+        <!-- Touchboost tile -->
+        <service
+            android:name=".TouchboostTileService"
+            android:icon="@drawable/ic_touchboost"
+            android:label="@string/touchboost_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
         <!-- USB 2.0 force FastCharge tile -->
         <service
             android:name=".USB2FastChargeTileService"

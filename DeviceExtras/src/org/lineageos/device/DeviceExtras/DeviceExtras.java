@@ -78,6 +78,7 @@ public class DeviceExtras extends PreferenceFragment
     public static final String KEY_KCAL = "kcal";
     public static final String KEY_MIC_GAIN = "microphone_gain";
     public static final String KEY_SRGB_SWITCH = "srgb";
+    public static final String KEY_TOUCH_BOOST_SWITCH = "touchboost";
     public static final String KEY_USB2_SWITCH = "usb2_fast_charge";
     public static final String KEY_WIDE_SWITCH = "wide";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
@@ -91,6 +92,7 @@ public class DeviceExtras extends PreferenceFragment
     private static TwoStatePreference mDCModeSwitch;
     private static TwoStatePreference mGameModeSwitch;
     private static TwoStatePreference mHBMModeSwitch;
+    private static TwoStatePreference mTouchboostModeSwitch;
     private static TwoStatePreference mUSB2FastChargeModeSwitch;
 
     private CustomSeekBarPreference mFpsInfoTextSizePreference;
@@ -172,6 +174,12 @@ public class DeviceExtras extends PreferenceFragment
         if (mMicGain != null) {
             mMicGain.setEnabled(MicGainPreference.isSupported());
         }
+
+        // Touchboost
+        mTouchboostModeSwitch = (TwoStatePreference) findPreference(KEY_TOUCH_BOOST_SWITCH);
+        mTouchboostModeSwitch.setEnabled(TouchboostModeSwitch.isSupported());
+        mTouchboostModeSwitch.setChecked(TouchboostModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mTouchboostModeSwitch.setOnPreferenceChangeListener(new TouchboostModeSwitch());
 
         // USB2 Force FastCharge
         mUSB2FastChargeModeSwitch = (TwoStatePreference) findPreference(KEY_USB2_SWITCH);
