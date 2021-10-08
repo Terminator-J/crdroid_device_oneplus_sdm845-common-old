@@ -23,6 +23,11 @@ on post-fs-data
     chown cameraserver audio /data/misc/lineage/client_package_name
     chmod 0644 /data/misc/lineage/client_package_name
 
+on init && property:ro.boot.mode=charger
+    mount_all /vendor/etc/charger_fw_fstab.qti --early
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
+
 on charger
     write /sys/class/backlight/panel0-backlight/brightness 150
 
