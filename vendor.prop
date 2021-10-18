@@ -174,3 +174,6 @@ ro.telephony.iwlan_operation_mode=legacy
 
 # Sensors
 persist.vendor.sensors.firmware_property_read_support=false
+
+# System
+persist.sys.binary_xml=false
