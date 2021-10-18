@@ -170,5 +170,8 @@ persist.vendor.sensors.firmware_property_read_support=false
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=SDM845
 
+# System
+persist.sys.binary_xml=false
+
 #QTI sysd
 persist.vendor.qcomsysd.enabled=1
