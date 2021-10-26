@@ -240,8 +240,7 @@ PRODUCT_PACKAGES += \
     libavservices_minijail
 
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+include vendor/oneplus/sdm845-common-extras/wfd.mk
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
