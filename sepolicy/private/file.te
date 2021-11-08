@@ -1,5 +1,6 @@
 # data
 type display_misc_file, file_type, data_file_type, core_data_file_type;
+type lineage_data_file, file_type, data_file_type, core_data_file_type;
 
 # proc
 type proc_touchpanel, fs_type, proc_type;
@@ -15,6 +16,8 @@ type sysfs_fod, sysfs_type, fs_type;
 type sysfs_graphics, sysfs_type, fs_type;
 type sysfs_oem, sysfs_type, fs_type;
 type sysfs_ssr, sysfs_type, fs_type;
-type sysfs_ssr_toggle,  sysfs_type, fs_type;
+type sysfs_ssr_toggle, sysfs_type, fs_type;
 type sysfs_usb_supply, sysfs_type, fs_type;
+type vendor_sysfs_battery_supply, sysfs_type, fs_type;
+type vendor_sysfs_msm_perf, sysfs_type, fs_type;
 type vendor_sysfs_usb_supply, sysfs_type, fs_type;
