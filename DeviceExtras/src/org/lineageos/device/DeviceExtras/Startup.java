@@ -35,8 +35,6 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent bootintent) {
 
         DeviceExtras.restoreSliderStates(context);
-        org.lineageos.device.DeviceExtras.doze.DozeUtils.checkDozeService(context);
-        org.lineageos.device.DeviceExtras.kcal.KCalSettings.restore(context);
         VibratorCallStrengthPreference.restore(context);
         VibratorNotifStrengthPreference.restore(context);
         VibratorStrengthPreference.restore(context);
@@ -47,11 +45,6 @@ public class Startup extends BroadcastReceiver {
         if (enabled) {
         restore(DCModeSwitch.getFile(), enabled);
                }
-        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_DCI_SWITCH, false);
-        if (enabled) {
-        mHBM = false;
-        restore(DCIModeSwitch.getFile(), enabled);
-               }
         enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_HBM_SWITCH, false);
         if (enabled) {
         restore(HBMModeSwitch.getFile(), enabled);
@@ -60,20 +53,6 @@ public class Startup extends BroadcastReceiver {
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
                }
-        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_SRGB_SWITCH, false);
-        if (enabled) {
-        mHBM = false;
-        restore(SRGBModeSwitch.getFile(), enabled);
- 	       }
-        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_USB2_SWITCH, false);
-        if (enabled) {
-        restore(USB2FastChargeModeSwitch.getFile(), enabled);
-               }
-        enabled = sharedPrefs.getBoolean(DeviceExtras.KEY_WIDE_SWITCH, false);
-        if (enabled) {
-        mHBM = false;
-        restore(WideModeSwitch.getFile(), enabled);
-        }
     }
 
     private void restore(String file, boolean enabled) {
