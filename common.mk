@@ -76,7 +76,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AntHalService-Soong
 
- #Audio
+# Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
@@ -200,32 +200,23 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.3-impl \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@2.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     gralloc.sdm845 \
     hwcomposer.sdm845 \
-    libdisplayconfig \
-    libdisplayconfig.vendor \
     libdisplayconfig.qti \
     libvulkan \
-    libdisplayconfig \
     libqdMetaData \
     libqdMetaData.system \
     libtinyxml \
-    memtrack.sdm845 \
+    libtinyxml.vendor \
     vendor.display.config@1.0.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
     memtrack.sdm845 \
     vendor.qti.hardware.display.allocator@1.0-service \
-    vendor.qti.hardware.display.mapper@1.0.vendor \
-    vendor.qti.hardware.display.mapper@1.1.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.oneplus.hardware.display@1.0.vendor
 
 # Doze
@@ -248,7 +239,7 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0 \
     android.hardware.gatekeeper@1.0.vendor
 
-# GPS
+# GNSS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0 \
     android.hardware.gnss@1.0.vendor \
@@ -256,8 +247,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.1.vendor \
     android.hardware.gnss@2.1 \
     android.hardware.gnss@2.1.vendor \
-    android.hardware.power@1.2 \
-    android.hardware.power@1.2.vendor
 
 # Health
 PRODUCT_PACKAGES += \
@@ -412,7 +401,9 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.qcom \
+    android.hardware.power@1.2 \
+    android.hardware.power@1.2.vendor
 
 # Pixel Offline charger
 PRODUCT_PACKAGES += \
@@ -576,4 +567,5 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
 
-    VENDOR_SECURITY_PATCH = 2021-10-01
+# Vendor security patch level
+VENDOR_SECURITY_PATCH = 2021-10-01
