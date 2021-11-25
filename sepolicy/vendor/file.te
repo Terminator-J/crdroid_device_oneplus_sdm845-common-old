@@ -23,6 +23,9 @@ type opf_file, file_type;
 
 type public_adsprpcd_file, file_type;
 
+type sysfs_irq, fs_type, sysfs_type;
+type proc_irq, fs_type, proc_type;
+
 # rootfs
 type op1_file, file_type;
 type op2_file, file_type;
