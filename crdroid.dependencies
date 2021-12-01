@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "github",
+    "repository": "Terminator-J/crdroid_hardware_oneplus",
+    "target_path": "hardware/oneplus",
+    "branch": "12.0-test"
+  },
+  {
+    "remote": "github",
+    "repository": "Terminator-J/crdroid_kernel_oneplus_sdm845",
+    "target_path": "kernel/oneplus/sdm845",
+    "branch": "12.0-test"
+  },
+  {
+    "remote": "github",
+    "repository": "Terminator-J/crdroid_proprietary_vendor_oneplus",
+    "target_path": "vendor/oneplus",
+    "branch": "12.0-test"
+  }
+]
