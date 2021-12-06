@@ -1,6 +1,11 @@
 # devices
 /dev/sg[0-9]+    u:object_r:sg_device:s0
 
+# Files in rootfs
+/op1(/.*)?       u:object_r:op1_file:s0
+/op2(/.*)?       u:object_r:op2_file:s0
+/op_odm(/.*)?    u:object_r:op_odm_file:s0
+
 # graphics device
 /dev/mdss_rotator                               u:object_r:graphics_device:s0
 /dev/dri/card0                                  u:object_r:graphics_device:s0
@@ -10,7 +15,6 @@
 # sysfs files
 /sys/class/thermal(/.*)?                                                                          u:object_r:sysfs_thermal:s0
 /sys/devices(/platform)?/soc/[a-f0-9]+.ufshc/host0/target0:0:0/0:0:0:[0-9]+/scsi_generic(/.*)?    u:object_r:sysfs_scsi_target:s0
-/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/backlight(/.*)?                                   u:object_r:sysfs_graphics:s0
 /sys/devices/virtual/thermal(/.*)?                                                                u:object_r:sysfs_thermal:s0
 
 # UFS Devices
