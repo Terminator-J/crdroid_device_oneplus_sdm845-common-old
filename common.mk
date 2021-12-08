@@ -176,6 +176,10 @@ $(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
 PRODUCT_PACKAGES += \
     power.qcom
 
+# Release tools
+PRODUCT_COPY_FILES += \
+    device/oneplus/sdm845-common/releasetools/releasetools.sdm845.sh:install/bin/releasetools.sdm845.sh
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages

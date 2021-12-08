@@ -69,6 +69,9 @@ TARGET_BOARD_PLATFORM := sdm845
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
+
 # Treble
 BOARD_VNDK_VERSION := current
 
