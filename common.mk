@@ -169,6 +169,7 @@ PRODUCT_PACKAGES += \
     init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
+    init.opcamera.rc \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
@@ -317,6 +318,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     oneplus-fwk
+
+# OnePlus Camera
+$(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
+
+PRODUCT_PACKAGES += \
+    vendor.oneplus.hardware.camera@1.0 \
+    vendor.oneplus.hardware.CameraMDMHIDL@1.0
 
 # Power
 PRODUCT_PACKAGES += \
