@@ -94,7 +94,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcvface_api
+    libcvface_api \
+    Snap
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -119,9 +120,6 @@ PRODUCT_PACKAGES += \
 # fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
-
-# Google Camera
-$(call inherit-product-if-exists, packages/apps/GoogleCamera/config.mk)
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -167,16 +165,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     oneplus-fwk
 
-# OnePlus Camera
-$(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
-
 # Power
 PRODUCT_PACKAGES += \
     power.qcom
-
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

@@ -16,17 +16,5 @@
     "repository": "crdroidandroid/proprietary_vendor_oneplus",
     "target_path": "vendor/oneplus",
     "branch": "11.0-sdm845-common"
-  },
-  {
-    "remote": "crdroid-gitlab",
-    "repository": "Terminator-J/crdroid_packages_apps_googlecamera",
-    "target_path": "packages/apps/GoogleCamera",
-    "branch": "support"
-  },
-  {
-    "remote": "crdroid-gitlab",
-    "repository": "Terminator-J/crdroid_packages_apps_onepluscamera",
-    "target_path": "packages/apps/OnePlusCamera",
-    "branch": "OOSCam2"
   }
 ]
