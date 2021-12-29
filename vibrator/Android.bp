@@ -1,0 +1,54 @@
+Common_CFlags = ["-Wall"]
+Common_CFlags += ["-Werror"]
+
+cc_library_shared {
+    name: "libqtivibratoreffect_sdm845",
+    system_ext_specific: true,
+    cflags: Common_CFlags,
+    srcs: ["effect.cpp"],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+    ],
+    export_include_dirs: ["."]
+}
+
+cc_library_shared {
+    name: "qti.hardware.vibrator.impl.oneplus_sdm845",
+    system_ext_specific: true,
+    cflags: Common_CFlags,
+    srcs: [
+        "Vibrator.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "libqtivibratoreffect_sdm845",
+        "libbinder_ndk",
+        "android.hardware.vibrator-ndk_platform",
+    ],
+    export_include_dirs: ["include"],
+}
+
+cc_binary {
+    name: "qti.hardware.vibrator.service.oneplus_sdm845",
+    relative_install_path: "hw",
+    init_rc: ["qti.hardware.vibrator.service.oneplus_sdm845.rc"],
+    system_ext_specific: true,
+    vintf_fragments: [
+        "qti.hardware.vibrator.service.oneplus_sdm845.xml",
+    ],
+    cflags: Common_CFlags,
+    srcs: [
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.vibrator-ndk_platform",
+        "qti.hardware.vibrator.impl.oneplus_sdm845",
+    ],
+}
