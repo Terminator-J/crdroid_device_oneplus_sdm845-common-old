@@ -87,7 +87,6 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcvface_api \
     Snap
 
 # Common init scripts
@@ -168,7 +167,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.oneplus_sdm845
+    vendor.lineage.livedisplay@2.1-service.oneplus
 
 # Net
 PRODUCT_PACKAGES += \
@@ -219,7 +218,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_sdm845
+    vendor.lineage.touch@1.0-service.oneplus
 
 # tri-state-key
 PRODUCT_PACKAGES += \
@@ -240,7 +239,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    vendor.qti.hardware.vibrator.service.oneplus
 
 # VNDK
 PRODUCT_COPY_FILES += \
