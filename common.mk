@@ -168,7 +168,6 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    libcvface_api \
     Snap \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -322,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.oneplus_sdm845
+    vendor.lineage.livedisplay@2.1-service.oneplus
 
 # Net
 PRODUCT_PACKAGES += \
@@ -408,7 +407,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oneplus_sdm845
+    vendor.lineage.touch@1.0-service.oneplus
 
 # tri-state-key
 PRODUCT_PACKAGES += \
@@ -437,7 +436,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service
+    vendor.qti.hardware.vibrator.service.oneplus
 
 # VNDK
 PRODUCT_COPY_FILES += \
