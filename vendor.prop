@@ -100,6 +100,9 @@ vendor.audio.feature.snd_mon.enable=true
 # ADB
 ro.boot.adb=true
 
+# APEX
+ro.apex.updatable=false
+
 # Bluetooth
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
@@ -118,9 +121,13 @@ ro.vendor.display.cabl=0
 vendor.display.enable_default_color_mode=0
 persist.sys.sf.native_mode=0
 persist.sys.sf.color_saturation=1.0
-ro.sf.lcd_density=420
-ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
+ro.sf.lcd_density=420
+ro.surface_flinger.has_HDR_display=true
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.supports_background_blur=1
+ro.surface_flinger.use_color_management=true
+ro.surface_flinger.wcg_composition_dataspace=143261696
 
 # DRM
 drm.service.enabled=true

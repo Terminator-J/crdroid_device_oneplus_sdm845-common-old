@@ -69,6 +69,16 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 # Treble
 BOARD_VNDK_VERSION := current
 
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    vbmeta \
+    vendor
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
@@ -147,7 +157,7 @@ TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 TARGET_USES_QCOM_DISPLAY_BSP := true
 ## Other settings
-TARGET_SCREEN_DENSITY := 411
+TARGET_SCREEN_DENSITY := 420
 ## Needs testing (from oneplus_sm8250-common or Syberia or xiaomi_sdm845-common)
 #TARGET_HAS_HDR_DISPLAY := true
 #TARGET_USE_COLOR_MANAGEMENT := true
