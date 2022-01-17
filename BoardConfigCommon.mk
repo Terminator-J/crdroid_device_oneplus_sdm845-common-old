@@ -63,6 +63,7 @@ TARGET_BOARD_PLATFORM := sdm845
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
+TARGET_SYSTEM_EXT_PROP += $(COMMON_PATH)/system_ext.prop
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
@@ -142,13 +143,18 @@ USE_CUSTOM_AUDIO_POLICY := 1
 #AUDIO_FEATURE_ENABLED_SND_MONITOR := true
 #AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+TARGET_USE_QTI_BT_STACK := true
+TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+
 # Display
 ## Feature flags from tag 'LA.UM.9.3.r1-02800-sdm845.0' of
 ## https://source.codeaurora.org/quic/la/platform/hardware/qcom/display
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
-TARGET_HAS_WIDE_COLOR_DISPLAY := true
+#TARGET_HAS_WIDE_COLOR_DISPLAY := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USES_COLOR_METADATA := true
 TARGET_USES_DRM_PP := true
@@ -157,7 +163,7 @@ TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 TARGET_USES_QCOM_DISPLAY_BSP := true
 ## Other settings
-TARGET_SCREEN_DENSITY := 420
+#TARGET_SCREEN_DENSITY := 420
 ## Needs testing (from oneplus_sm8250-common or Syberia or xiaomi_sdm845-common)
 #TARGET_HAS_HDR_DISPLAY := true
 #TARGET_USE_COLOR_MANAGEMENT := true
@@ -203,7 +209,7 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 # Recovery
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_NO_RECOVERY := true
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/recovery/recovery.fstab
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true

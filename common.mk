@@ -16,6 +16,7 @@
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/sdm845-common/sdm845-common-vendor.mk)
@@ -139,12 +140,16 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    libbthost_if \
+    libldacBT_dec \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Boot control
 PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl.recovery:64 \
     android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.0-impl \
     bootctrl.sdm845.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
@@ -159,16 +164,11 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    ftm_power_config.sh \
     init.class_main.sh \
     init.crda.sh \
-    init.cust.rc \
     init.mdm.sh \
     init.oem.debug.rc \
     init.oem.rc \
-    init.oem_ftm.rc \
-    init.oem_rf.rc \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
@@ -182,21 +182,21 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.qti.chg_policy.sh \
-    init.qti.fm.rc \
-    init.qti.fm.sh \
-    init.qti.qcv.rc \
     init.qti.qcv.sh \
     init.qti.ufs.rc \
     init.recovery.qcom.rc \
-    init.smartcharging.rc \
     init.target.rc \
-    init.time_daemon.rc \
     init.uicc.rc \
     init.vendor.sensors.rc \
+    recovery.ueventd.qcom.rc \
+    vendor.fstab.qcom \
     vendor.memplus.sh \
-    ueventd.qcom.rc \
-    vendor.oem_ftm.rc \
-    vendor.oem_ftm_svc_disable.rc
+    vendor.ueventd.rc
+
+# Component overrides
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
+    $(LOCAL_PATH)/configs/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # Display
 PRODUCT_PACKAGES += \
