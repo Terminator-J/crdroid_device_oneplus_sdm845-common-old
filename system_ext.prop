@@ -1,0 +1,4 @@
+# Insert sdm845-common system_ext properties here
+
+# DPM
+persist.vendor.dpm.feature=11

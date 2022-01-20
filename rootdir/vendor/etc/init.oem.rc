@@ -11,7 +11,7 @@
 ##################################################################################
 #Load WLAN driver
 
-import /vendor/etc/init/hw/init.cust.rc
+#import /vendor/etc/init/hw/init.cust.rc
 #ethan.peng@Connectivity,2020/12/29,close uicc since orange
 import /vendor/etc/init/hw/init.uicc.rc
 

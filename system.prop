@@ -1,77 +1,277 @@
-# AB Update
-ro.build.ab_update=true
+# Insert sdm845-common system properties here
+
+# Do not try to parse thumbprint
+#ro.vendor.product.device.db=OP_DEVICE
+#ro.vendor.product.manufacturer.db=OP_PHONE
+
+
+# Partition source order for Product/Build properties pickup.
+ro.product.property_source_order=odm,vendor,product,system_ext,system
+
+
+# VENDOR_EDIT johnny.tsai@oneplus.net,It is Google design not to bring down Data call when Wifi is up for inger timer
+persist.netmon.linger=5000
+# VENDOR_EDIT_END
+
+
+# APEX
+ro.apex.updatable=false
+
 
 # Audio
-audio.offload.min.duration.secs=30
+#persist.speaker.prot.enable=false
+
 persist.vendor.audio.hac.enable=false
-persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
+
+## rich.yu@MM.Audio, 2020/06/05, enable monitor Rotation
+ro.audio.monitorRotation=true
+
+## enable tunnel encoding for amrwb
+tunnel.audio.encode = true
+
+## enable voice path for PCM VoIP by default
+use.voice.path.for.pcm.voip=true
+
+
+# Battery/Charger
+## for battery charging off is call_state_change
+## jinguozhi@wt.network,20210207,add for battery charging off is call_state_change
+persist.sys.chgdisabled=0
+
+ro.charger.enable_suspend = 1
+
+
+# Bluetooth
+## xuejie.wen@Connectivity, 2019/11/30, [INT-6139] Add for solve audio crash
+persist.vendor.bt.a2dp.hal.implementation=true
+
+persist.vendor.btstack.aac_frm_ctl.enabled=true
+
+## Clark.lei@Connectivity, 2020/01/17, [ITN-8395] more power consume when A2DP work
+persist.vendor.btstack.enable.lpa=true
+
+## Jeffrey.li@Connectivity, 2019/10/04, [INT-612] Add Bluetooth property into system.prop
+persist.vendor.btstack.enable.twsplus=false
+
+ro.bluetooth.library_name=libbluetooth_qti.so
+
 
 # BPF
 ro.kernel.ebpf.supported=true
 
+
 # Camera
-camera.disable_zsl_mode=true
-vendor.camera.aux.packagelist=com.oneplus.camera,com.oneplus.camera.service,org.codeaurora.snapcam
+## Byron@Camera, 2020/06/29, add APS log level support
+persist.camera.assert.panic=true
+persist.camera.managebuffer.enable=1
+ro.opcamera.support=true
 
-# Charger
-ro.charger.disable_init_blank=true
+## Whitelisting the below packages
+persist.camera.privapp.list=com.google.android.GoogleCamera,com.oneplus.camera,org.codeaurora.snapcam
+persist.vendor.camera.privapp.list=com.google.android.GoogleCamera,com.oneplus.camera,org.codeaurora.snapcam
 
-# Display
-debug.gralloc.gfx_ubwc_disable=0
-debug.sf.enable_hwc_vds=1
-debug.sf.latch_unsignaled=1
-persist.vendor.color.matrix=2
+## Expose aux camera for below packages
+vendor.camera.aux.packagelist=com.google.android.GoogleCamera,com.oneplus.camera,org.codeaurora.snapcam
 
-# CNE
+
+# CNE/IMS
 persist.vendor.cne.feature=1
 
-# DPM
-persist.vendor.dpm.feature=9
+
+# Dalvik/ART
+dalvik.vm.heapsize=36m
+dev.pm.dyn_samplingrate=1
+
+
+# Data/Network
+## system prop for RmNet Data
+persist.data.df.dl_mode=5
+persist.data.df.ul_mode=5
+persist.data.df.agg.dl_pkt=10
+persist.data.df.agg.dl_size=4096
+persist.data.df.mux_count=8
+persist.data.df.iwlan_mux=9
+persist.data.df.dev_name=rmnet_usb0
+persist.data.wda.enable=true
+persist.rmnet.data.enable=true
+
+persist.vendor.data.mode=concurrent
+ro.vendor.use_data_netmgrd=true
+
+
+# Display
+#ro.hdmi.enable=true
+
+## property to enable HWC for VDS
+debug.sf.enable_hwc_vds=1
+
+## property to latch unsignaled buffer
+debug.sf.latch_unsignaled=1
+
 
 # fastbootd
 ro.fastbootd.available=true
+
+
+# Filesystem
+## Simulate sdcard on /data/media
+persist.fuse_sdcard=true
+
+
+# Graphics
+persist.sys.force_sw_gles=1
+
+## kane.gao@Display, 2020/09/07, add property to enable UGD feature
+ro.gfx.driver.0=com.oneplus.gpudrivers.kona.api30
+ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.kona.api30
+
+## hwui properties
+ro.hwui.texture_cache_size=72
+ro.hwui.layer_cache_size=48
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.path_cache_size=32
+ro.hwui.gradient_cache_size=1
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+
+ro.kernel.qemu.gles=0
+
 
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
-# IOP
+## rad.yeh@NETWORK, 2020/08/25, add property to disable ims library logs
+persist.vendor.ims.disableADBLogs=1
+
+
+# IO Prefetcher
 vendor.iop.enable_prefetch_ofr=1
 vendor.iop.enable_uxe=0
 
-# Iorap
+
+# IORap
 iorapd.perfetto.enable=true
 iorapd.readahead.enable=true
 
+
+# Location
+## enable IZat OptInApp overlay
+persist.vendor.overlay.izat.optin=rro
+
+
 # Media
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+mmp.enable.3g2=true
+media.aac_51_output_enabled=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
-# Perf
-ro.vendor.qti.core_ctl_max_cpu=4
-ro.vendor.qti.core_ctl_min_cpu=2
+## 16777215 is decimal sum of supported codecs in AAL
+## codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF AVI DTS FLV 3GP 3G2 MKV MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF APE DSD MOV MHAS
+#vendor.mm.enable.qcom_parser=16777215
+
+## wangbuqing@media,[IKR-21801]disable qcom wav parser,20200817
+vendor.mm.enable.qcom_parser=16711679
+
+persist.mm.enable.prefetch=true
+qcom.hw.aac.encoder=true
+
+## Property to enable Codec2 for audio and OMX for Video
+debug.stagefright.ccodec=1
+
+## Property to set native recorder's maximum base layer fps
+ro.media.recorder-max-base-layer-fps = 60
+
+
+# Misc Hardware
+persist.vendor.naruto.light.support=true
+qemu.hw.mainkeys=0
+
+## initialize QCA1530 detection
+sys.qca1530=detect
+
+
+# Misc System
+## Enable stm events
+persist.debug.coresight.config=stm-events
+
+
+# NFC
+ro.nfc.port=I2C
+
 
 # Radio
-persist.vendor.radio.bar_fake_gcell=1
-persist.vendor.radio.data_con_rprt=1
-persist.vendor.radio.data_ltd_sys_ind=1
-persist.vendor.radio.force_on_dc=true
-persist.vendor.radio.ignore_dom_time=10
+DEVICE_PROVISIONED=1
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_plmn=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+persist.vendor.radio.atfwd.start=true
+ril.subscription.types=NV,RUIM
+#rild.libargs=-d /dev/smd0
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+
+
+# Sensors
+## Property to enable Mag filter
+persist.vendor.sensors.enable.mag_filter=true
+
+
+# SSR
+persist.vendor.ssr.enable_ramdumps=1
+persist.vendor.ssr.restart_level=ALL_ENABLE
+
+
+# Telephony
+config.disable_rtt=true
 ro.telephony.default_network=22,22
+
+## System prop to turn on CdmaLTEPhone always
+telephony.lteOnCdmaDevice=1
+
+
+# Time
+persist.timed.enable=true
+
+## Property for backup NTP Server
+persist.backup.ntpServer="0.pool.ntp.org"
+
 
 # Touchscreen
 persist.vendor.qti.inputopts.enable=true
 persist.vendor.qti.inputopts.movetouchslop=0.6
 
-# Netmgr
-persist.vendor.data.iwlan.enable=true
-persist.vendor.data.mode=concurrent
 
-# SSR
-persist.vendor.ssr.restart_level=ALL_ENABLE
+# Treble
+ro.treble.enabled=true
+
 
 # Vendor
 ro.vendor.qti.va_aosp.support=1
+
+
+# WiFi Display
+persist.debug.wfd.enable=1
+
+## property to choose between virtual/external wfd display
+persist.sys.wfd.virtual=0
+
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
