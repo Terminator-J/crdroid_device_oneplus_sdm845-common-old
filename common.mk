@@ -15,8 +15,12 @@
 #
 
 # APEX
-OVERRIDE_TARGET_FLATTEN_APEX := true
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+#OVERRIDE_TARGET_FLATTEN_APEX := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+## Force disable updating of APEXes when flatten APEX flag is enabled
+ifeq ($(OVERRIDE_TARGET_FLATTEN_APEX),true)
+PRODUCT_PRODUCT_PROPERTIES += ro.apex.updatable=false
+endif
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/sdm845-common/sdm845-common-vendor.mk)
@@ -147,9 +151,9 @@ PRODUCT_PACKAGES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl.recovery:64 \
+    android.hardware.boot@1.0-impl.vendor \
+    android.hardware.boot@1.0-service.vendor \
     android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.0-impl \
     bootctrl.sdm845.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
@@ -358,6 +362,10 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
 
+# RenderScript
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0
+
 # RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
@@ -417,7 +425,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.2-service-qti
+    android.hardware.usb@1.0-service
 
 # Vendor libstdc++
 PRODUCT_PACKAGES += \
