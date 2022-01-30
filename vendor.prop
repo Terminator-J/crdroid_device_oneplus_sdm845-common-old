@@ -129,6 +129,10 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 # GPS
 persist.backup.ntpServer=0.pool.ntp.org
 
+# Graphics
+debug.hwui.use_hint_manager=true
+debug.hwui.target_cpu_time_percent=30
+
 # Keystore
 ro.hardware.keystore_desede=true
 
