@@ -15,9 +15,8 @@
 #
 
 # APEX
-#OVERRIDE_TARGET_FLATTEN_APEX := true
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 ## Force disable updating of APEXes when flatten APEX flag is enabled
+OVERRIDE_TARGET_FLATTEN_APEX := true
 ifeq ($(OVERRIDE_TARGET_FLATTEN_APEX),true)
 PRODUCT_PRODUCT_PROPERTIES += ro.apex.updatable=false
 endif
@@ -34,9 +33,6 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 
 # Properties
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
-# VNDK
-PRODUCT_USE_PRODUCT_VNDK_OVERRIDE := true
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -151,10 +147,11 @@ PRODUCT_PACKAGES += \
 
 # Boot control
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl.vendor \
-    android.hardware.boot@1.0-service.vendor \
-    android.hardware.boot@1.0-impl.recovery \
-    bootctrl.sdm845.recovery
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.1-impl.recovery:64 \
+    bootctrl.sdm845.recovery \
+    bootctrl.sdm845
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl

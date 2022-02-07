@@ -1364,7 +1364,7 @@ vendor/lib64/libsoc_helper.so
 #vendor/bin/hw/hostapd
 #vendor/bin/hw/wpa_supplicant
 vendor/bin/cnss-daemon
-vendor/etc/init/android.hardware.wifi.supplicant-service.rc
+#vendor/etc/init/android.hardware.wifi.supplicant-service.rc
 #vendor/etc/init/android.hardware.wifi@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc
 #-vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml
