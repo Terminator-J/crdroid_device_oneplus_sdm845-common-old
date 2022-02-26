@@ -1,0 +1,7 @@
+on fs
+    start vendor.tri-state-key_daemon
+
+service vendor.tri-state-key_daemon /vendor/bin/tri-state-key_daemon
+    class late_start
+    user system
+    group system uhid
