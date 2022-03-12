@@ -138,6 +138,9 @@ persist.backup.ntpServer=0.pool.ntp.org
 # Keystore
 ro.hardware.keystore_desede=true
 
+# Memory Management
+ro.vendor.qti.sys.fw.bg_apps_limit=64
+
 # Netflix
 ro.netflix.bsp_rev=Q845-14477-1
 
