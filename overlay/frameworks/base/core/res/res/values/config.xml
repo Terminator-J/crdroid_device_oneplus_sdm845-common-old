@@ -117,7 +117,7 @@
 
          Note that doze dreams are not subject to the same start conditions as ordinary dreams.
          Doze dreams will run whenever the power manager is in a dozing state. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <string name="config_dozeComponent">org.lineageos.oneplus.DeviceExtras/org.lineageos.oneplus.DeviceExtras.doze.DozeService</string>
 
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
@@ -352,6 +352,9 @@
          0: Left side
          1: Right side -->
     <integer name="config_alertSliderLocation">1</integer>
+
+    <!-- Whether key handler sends intent when changing slider position -->
+    <string name="config_alertSliderIntent">org.lineageos.oneplus.DeviceExtras.slider.UPDATE_SLIDER_POSITION</string>
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <bool name="config_fpCancelIfNotIdle">true</bool>
