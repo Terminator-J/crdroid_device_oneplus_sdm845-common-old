@@ -163,7 +163,7 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
-    vendor.qti.hardware.camera.device@1.0.vendor
+    vendor.qti.hardware.camera.device@1.0.vendor:64
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -343,6 +343,13 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     oneplus-fwk
+
+# OnePlus Camera
+$(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
+
+PRODUCT_PACKAGES += \
+    vendor.oneplus.hardware.camera@1.0.vendor:64 \
+    vendor.oneplus.hardware.CameraMDMHIDL@1.0.vendor:64
 
 # Power
 PRODUCT_PACKAGES += \
