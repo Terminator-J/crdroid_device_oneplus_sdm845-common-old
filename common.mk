@@ -31,6 +31,10 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
+PRODUCT_PACKAGES += \
+    OnePlusCameraOverlay \
+    OnePlusGalleryOverlay
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -348,6 +352,7 @@ PRODUCT_BOOT_JARS += \
 $(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
 
 PRODUCT_PACKAGES += \
+    libcamera2ndk_vendor \
     vendor.oneplus.hardware.camera@1.0.vendor:64
 
 # Power
