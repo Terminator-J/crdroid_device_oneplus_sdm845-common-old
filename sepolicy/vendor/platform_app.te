@@ -1,4 +1,4 @@
 allow platform_app sysfs_battery_supply:dir { search };
 allow platform_app sysfs_battery_supply:file r_file_perms;
 allow platform_app vendor_camera_data_file:dir getattr;
-allow platform_app xdsp_device:chr_file { ioctl read getattr lock map open };
+#allow platform_app xdsp_device:chr_file { ioctl read getattr lock map open };
