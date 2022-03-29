@@ -1,5 +1,8 @@
 hal_client_domain(hal_camera_default, hal_cameraHIDL)
 
+allow hal_camera_default default_prop:file r_file_perms;
+allow hal_camera_default default_prop:property_service { set };
+
 allow hal_camera_default mnt_vendor_file:dir w_dir_perms;
 allow hal_camera_default mnt_vendor_file:file create_file_perms;
 
@@ -18,13 +21,7 @@ allow hal_camera_default vendor_camera_data_file:dir create_dir_perms;
 
 allow hal_camera_default xdsp_device:chr_file r_file_perms;
 
-allow hal_camera_default cgroup:file getattr;
-allow hal_camera_default hal_cameraHIDL_hwservice:hwservice_manager find;
-allow hal_camera_default public_adsprpcd_file:file { read open getattr };
-
-allow hal_camera_default platform_app:binder { call transfer };
-
 get_prop(hal_camera_default, ctl_default_prop)
 get_prop(hal_camera_default, vendor_mmi_prop)
-get_prop(hal_camera_default, vendor_persist_camera_prop)
-set_prop(hal_camera_default, camera_prop)
+#get_prop(hal_camera_default, vendor_persist_camera_prop)
+#set_prop(hal_camera_default, camera_prop)

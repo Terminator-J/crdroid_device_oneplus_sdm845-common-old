@@ -1,6 +1,3 @@
-allow sensors oem_file:dir { search getattr read };
-allow sensors oem_file:file { read open map getattr };
-
 allow sensors sensors_vendor_data_file:dir create_dir_perms;
 allow sensors sensors_vendor_data_file:file create_file_perms;
 
