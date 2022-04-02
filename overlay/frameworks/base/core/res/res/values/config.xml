@@ -374,10 +374,6 @@
     <bool name="config_dozePulseProximity">true</bool>
     <bool name="config_dozePulseTilt">true</bool>
 
-    <!-- Pocket Lock -->
-    <bool name="config_pocketModeSupported">true</bool>
-    <bool name="config_pocketUseLightSensor">false</bool>
-
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName">oneplus.sensor.pocket</string>
     <string name="config_pocketJudgeVendorProximitySensorName">oneplus.sensor.pocket</string>
@@ -412,7 +408,7 @@
     <bool name="config_fpCancelIfNotIdle">true</bool>
 
     <!-- Screen off UDFPS -->
-    <bool name="config_supportScreenOffUdfps">true</bool>
+    <bool name="config_supportScreenOffUdfps">false</bool>
 
 <!-- The following flags are currently dead, but, maybe they'll be back someday -->
 
