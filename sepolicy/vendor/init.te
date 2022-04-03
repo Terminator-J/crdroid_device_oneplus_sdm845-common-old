@@ -1,2 +1,5 @@
 allow init op1_file:dir mounton;
 allow init op2_file:dir mounton;
+
+allow init sysfs_dm:file { setattr };
+allow init init:file { setattr };
