@@ -355,7 +355,8 @@ PRODUCT_BOOT_JARS += \
 $(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
 
 PRODUCT_PACKAGES += \
-    vendor.oneplus.hardware.camera@1.0.vendor:64
+    vendor.oneplus.hardware.camera@1.0 \
+    vendor.oneplus.hardware.CameraMDMHIDL@1.0
 
 # Power
 PRODUCT_PACKAGES += \
