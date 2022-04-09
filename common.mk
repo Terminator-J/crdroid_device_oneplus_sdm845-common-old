@@ -354,10 +354,6 @@ PRODUCT_BOOT_JARS += \
 # OnePlus Camera
 $(call inherit-product-if-exists, packages/apps/OnePlusCamera/config.mk)
 
-PRODUCT_PACKAGES += \
-    vendor.oneplus.hardware.camera@1.0 \
-    vendor.oneplus.hardware.CameraMDMHIDL@1.0
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
