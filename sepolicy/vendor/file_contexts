@@ -46,6 +46,9 @@
 /mnt/vendor/op1(/.*)?    u:object_r:op1_file:s0
 /mnt/vendor/op2(/.*)?    u:object_r:op2_file:s0
 
+# Persist files
+/mnt/vendor/persist/camera(/.*)?    u:object_r:oem_file:s0
+
 # Sys files
 /sys/bus/platform/devices/soc/soc:tri_state_key/tri_state    u:object_r:sysfs_tri_state_key:s0
 /sys/devices/platform/soc/soc:tri_state_key/tri_state        u:object_r:sysfs_tri_state_key:s0
