@@ -65,6 +65,7 @@ const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
           {"native_display_customer_srgb_mode", "0"},
           {"native_display_customer_p3_mode", "0"},
           {"native_display_wide_color_mode", "1"},
+          {"native_display_loading_effect_mode", "0"},
       }}},
     {3,
      {"sRGB",
@@ -75,6 +76,7 @@ const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
           {"native_display_customer_srgb_mode", "0"},
           {"native_display_customer_p3_mode", "0"},
           {"native_display_customer_srgb_mode", "1"},
+          {"native_display_loading_effect_mode", "0"},
       }}},
     {4,
      {"DCI_P3",
@@ -85,6 +87,7 @@ const std::map<int32_t, DisplayModes::ModeInfo> DisplayModes::kModeMap = {
           {"native_display_customer_srgb_mode", "0"},
           {"native_display_customer_p3_mode", "0"},
           {"native_display_customer_p3_mode", "1"},
+          {"native_display_loading_effect_mode", "0"},
       }}},
 };
 
