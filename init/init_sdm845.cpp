@@ -79,6 +79,87 @@ void load_dalvikvm_properties() {
   property_override("dalvik.vm.heapminfree", "8m");
 }
 
+void vendor_load_properties() {
+  std::string project_codename = android::base::GetProperty("ro.boot.project_codename", "");
+  int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
+  int hw_version = stoi(android::base::GetProperty("ro.boot.hw_version", ""));
+  if(project_codename == "enchilada"){
+      /* OnePlus 6 */
+      switch (rf_version){
+        case 32:
+          /* Europe / US Unlocked 8/128 8/256 */
+          property_override("ro.product.model", "ONEPLUS A6003");
+          break;
+        case 34:
+          /* China Unlocked / India 8/128 */
+          property_override("ro.product.model", "ONEPLUS A6000");
+          break;
+        case 44:
+          /* China Unlocked 6/64 8/128 8/256 */
+          property_override("ro.product.model", "ONEPLUS A6000");
+          break;
+        default:
+          /* Generic */
+          property_override("ro.product.model", "ONEPLUS A6003");
+          break;
+      }
+  } else if(project_codename == "fajita"){
+      if(hw_version == 41){
+        /* OnePlus 6T */
+        switch (rf_version){
+          case 11:
+            /* T-Mobile */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+          case 12:
+            /* Europe / US Unlocked 6/128 8/128 */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+          case 13:
+            /* China / India 8/128 10/256 */
+            property_override("ro.product.model", "ONEPLUS A6010");
+            break;
+          case 41:
+            /* Europe / US Unlocked 8/256 */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+          default:
+            /* Generic */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+        }
+      } else if(hw_version == 45){
+        /* OnePlus 6T McLaren */
+        switch (rf_version){
+          case 41:
+            /* US Unlocked 10/256 */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+          case 13:
+            /* India 10/256 */
+            property_override("ro.product.model", "ONEPLUS A6010");
+            break;
+          default:
+            /* Generic */
+            property_override("ro.product.model", "ONEPLUS A6013");
+            break;
+        }
+      }
+  } else if(project_codename == "fajitat"){
+      /* OnePlus 6T T-Mobile variant */
+······switch·(rf_version){
+        case 11:
+          /* US */
+          property_override("ro.product.model", "ONEPLUS A6013");
+          break;
+        default:
+          /* Generic */
+          property_override("ro.product.model", "ONEPLUS A6013");
+          break;
+      }
+  }
+}
+
   // dalvikvm props
   load_dalvikvm_properties();
 }
