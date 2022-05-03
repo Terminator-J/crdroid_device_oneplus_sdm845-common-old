@@ -4,3 +4,8 @@ set_prop(system_app, vendor_nfc_prop)
 
 allow system_app sysfs_leds:dir { search };
 allow system_app sysfs_leds:file { write };
+
+allow system_app proc_pagetypeinfo:file { open read };
+allow system_app proc_vmallocinfo:file { open read };
+allow system_app sysfs_zram:dir { search };
+allow system_app sysfs_zram:file { read };
