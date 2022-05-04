@@ -23,4 +23,10 @@
 
     <!-- Custom pickup sensor for doze customization -->
     <string name="pickup_sensor" translatable="false">oneplus.sensor.op_motion_detect</string>
+
+    <!-- Battery Health -->
+    <string name="config_batteryChargeCycles">/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qpnp,fg/power_supply/bms/cycle_count</string>
+    <string name="config_batteryDesignCapacity">/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qpnp,fg/power_supply/bms/charge_full_design</string>
+    <string name="config_batteryCalculatedCapacity">/sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pmi8998@2:qpnp,fg/power_supply/bms/charge_counter</string>
+    <bool name="config_supportBatteryHealth">true</bool>
 </resources>
