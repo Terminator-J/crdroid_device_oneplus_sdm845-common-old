@@ -1,5 +1,5 @@
-allow vendor_qtelephony property_socket:sock_file { write };
-#hal_client_domain(vendor_qtelephony, hal_telephony)
-#binder_call(vendor_qtelephony, hal_telephony_default)
+#allow vendor_qtelephony property_socket:sock_file { write };
+hal_client_domain(vendor_qtelephony, hal_telephony)
+binder_call(vendor_qtelephony, hal_telephony)
 #add_hwservice(vendor_qtelephony, hal_telephony_hwservice)
-#allow vendor_qtelephony hal_telephony_hwservice:hwservice_manager find;
+allow vendor_qtelephony hal_telephony_hwservice:hwservice_manager find;
