@@ -1,1 +1,1 @@
-allow cdsprpcd xdsp_device:chr_file { read };
+allow cdsprpcd xdsp_device:chr_file { ioctl open read };
