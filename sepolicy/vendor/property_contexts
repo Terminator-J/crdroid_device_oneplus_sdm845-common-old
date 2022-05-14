@@ -14,6 +14,7 @@ vendor.camera.             u:object_r:camera_prop:s0
 gf.debug.    u:object_r:debug_prop:s0
 
 # NFC
+persist.factoryota.           u:object_r:vendor_nfc_prop:s0
 persist.nfc.                  u:object_r:vendor_nfc_prop:s0
 persist.vendor.nfc.           u:object_r:vendor_nfc_prop:s0
 persist.vendor.oem.nfc.rf.    u:object_r:vendor_nfc_prop:s0

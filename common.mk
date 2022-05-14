@@ -330,8 +330,11 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.2.vendor \
+    android.hardware.nfc@1.0-impl.vendor \
+    android.hardware.nfc@1.2.vendor \
     com.android.nfc_extras \
+    ese_spi_nxp.vendor \
+    libchrome.vendor \
     NfcNci \
     Tag
 
@@ -367,6 +370,8 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.2.vendor \
     libprotobuf-cpp-full \
     librmnetctl \
     libxml2
