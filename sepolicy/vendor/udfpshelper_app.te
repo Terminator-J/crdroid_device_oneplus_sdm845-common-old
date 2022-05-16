@@ -1,0 +1,8 @@
+type udfpshelper_app, domain;
+
+app_domain(udfpshelper_app)
+
+allow udfpshelper_app { activity_service }:service_manager find;
+
+allow udfpshelper_app sysfs_fod:dir search;
+allow udfpshelper_app sysfs_fod:file rw_file_perms;
