@@ -313,6 +313,26 @@
     <string name="db_default_sync_mode">OFF</string>
     <string name="db_wal_sync_mode">OFF</string>
 
+    <!-- Extra location package names -->
+    <string-array name="config_locationExtraPackageNames" translatable="false">
+        <!-- CneApp -->
+        <item>com.qualcomm.qti.cne</item>
+        <!-- Google Play Services location history module -->
+        <item>com.google.android.gms.location.history</item>
+        <!-- TeleService -->
+        <item>com.android.phone</item>
+        <!-- microG - Apple UnifiedNlp Backend -->
+        <item>org.microg.nlp.backend.apple</item>
+        <!-- microG - Deja Vu Locattion Service -->
+        <item>org.fitchfamily.android.dejavu</item>
+        <!-- microG - GSM Location Service -->
+        <item>org.fitchfamily.android.gsmlocation</item>
+        <!-- microG - Mozilla UnifiedNlp Backend -->
+        <item>org.microg.nlp.backend.ichnaea</item>
+        <!-- microG - WiFi Location Service -->
+        <item>org.fitchfamily.android.wifi_backend</item>
+    </string-array>
+
 <!-- crDroid-specific customizations below -->
 <!--
      Copyright (C) 2016-2021 crDroid Android Project
