@@ -353,7 +353,6 @@
 
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName">oneplus.sensor.pocket</string>
-    <string name="config_pocketJudgeVendorProximitySensorName">android.sensor.proximity</string>
 
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">true</bool>
