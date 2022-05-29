@@ -47,7 +47,7 @@
     <bool name="config_deviceSupportsMicGain">true</bool>
 
     <!-- Whether device supports Touch Screen Gestures -->
-    <bool name="config_deviceSupportsTouchScreenGestures">false</bool>
+    <bool name="config_deviceSupportsTouchScreenGestures">true</bool>
 
     <!-- Whether device supports USB2.0 Force Fastcharge -->
     <bool name="config_deviceSupportsUSB2FC">true</bool>
