@@ -53,7 +53,7 @@
     <bool name="config_deviceSupportsMicGain">true</bool>
 
     <!-- Whether device supports Touch Screen Gestures -->
-    <bool name="config_deviceSupportsTouchScreenGestures">true</bool>
+    <bool name="config_deviceSupportsTouchScreenGestures">false</bool>
 
     <!-- Whether device supports GameMode -->
     <bool name="config_deviceSupportsGameMode">false</bool>
