@@ -22,6 +22,7 @@
 
 # Data files
 /data/misc/lineage/client_package_name    u:object_r:lineage_data_file:s0
+/data/nfc/nfc_pipe                        u:object_r:nfc_vendor_data_file:s0
 
 # Devices
 /dev/dash                 u:object_r:dash_device:s0

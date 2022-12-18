@@ -8,6 +8,9 @@ allow hal_camera_default input_device:chr_file r_file_perms;
 allow hal_camera_default mnt_vendor_file:dir w_dir_perms;
 allow hal_camera_default mnt_vendor_file:file create_file_perms;
 
+allow hal_camera_default nfc_vendor_data_file:dir r_dir_perms;
+allow hal_camera_default nfc_vendor_data_file:file rw_file_perms;
+
 allow hal_camera_default oem_file:dir w_dir_perms;
 allow hal_camera_default oem_file:file create_file_perms;
 
